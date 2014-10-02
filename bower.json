@@ -1,0 +1,28 @@
+{
+  "name": "debug",
+  "main": [
+    "./debug.css",
+    "./debug.js"
+  ],
+  "version": "1.0.0",
+  "authors": [
+    "Guillaume Esquevin <guillaume.esquevin@platypus-creation.com>"
+  ],
+  "description": "Debug directive to toggle current json display on shorcut",
+  "keywords": [
+    "angularjs",
+    "json",
+    "debug",
+    "collapse",
+    "highlight"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular-json-viewer": "~1.0.2"
+  }
+}
