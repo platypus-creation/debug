@@ -5,11 +5,13 @@
     ]);
 
     app.directive('debug', function($window){
-        $($window).on('load', function(){
-            $(document.body).on('keypress', function(e){
-                if (e.charCode == 68 && e.shiftKey && !$(e.target).is('input, select, textarea') && $(e.target).attr('contenteditable') !== 'true') { //D
-                    $(document.body).toggleClass('showDebug');
-                    $(document).trigger('debugToggle');
+        angular.element($window).on('load', function(){
+            angular.element(document.body).on('keypress', function(e){
+                if (e.charCode == 68 && e.shiftKey && 
+                ['input', 'select', 'textarea'].indexOf(e.target.tagName) < 0 && 
+                angular.element(e.target).attr('contenteditable') !== 'true') {
+                    angular.element(document.body).toggleClass('showDebug');
+                    angular.element(document).triggerHandler('debugToggle');
                 }
             });
         });
