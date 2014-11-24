@@ -8,7 +8,7 @@
         angular.element($window).on('load', function(){
             angular.element(document.body).on('keypress', function(e){
                 if (e.charCode == 68 && e.shiftKey && 
-                ['input', 'select', 'textarea'].indexOf(e.target.tagName) < 0 && 
+                ['INPUT', 'SELECT', 'TEXTAREA'].indexOf(e.target.tagName) < 0 && 
                 angular.element(e.target).attr('contenteditable') !== 'true') {
                     angular.element(document.body).toggleClass('showDebug');
                     angular.element(document).triggerHandler('debugToggle');
