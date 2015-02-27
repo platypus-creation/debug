@@ -4,7 +4,7 @@
     "./debug.css",
     "./debug.js"
   ],
-  "version": "1.0.3",
+  "version": "1.0.4",
   "authors": [
     "Guillaume Esquevin <guillaume.esquevin@platypus-creation.com>"
   ],

@@ -4,17 +4,22 @@
         'platypus.jsonviewer'
     ]);
 
-    app.directive('debug', function($window){
-        angular.element($window).on('load', function(){
+    app.directive('debug', function(){
+        var listenKeypress = function(){
             angular.element(document.body).on('keypress', function(e){
-                if (e.charCode == 68 && e.shiftKey && 
-                ['INPUT', 'SELECT', 'TEXTAREA'].indexOf(e.target.tagName) < 0 && 
+                if (e.charCode === 68 && e.shiftKey &&
+                ['INPUT', 'SELECT', 'TEXTAREA'].indexOf(e.target.tagName) < 0 &&
                 angular.element(e.target).attr('contenteditable') !== 'true') {
                     angular.element(document.body).toggleClass('showDebug');
                     angular.element(document).triggerHandler('debugToggle');
                 }
             });
-        });
+        };
+        if(document.readyState === "complete") {
+            listenKeypress();
+        } else {
+            angular.element(window).on('load', listenKeypress);
+        }
         return {
             restrict: 'E',
             template: '<div json-viewer="debugData"></div>',
